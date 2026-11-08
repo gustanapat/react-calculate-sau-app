@@ -1,5 +1,6 @@
 import bmr from "../assets/bmr.png"
 import { Link } from "react-router"
+import Footer from "../components/Footer"
  
 export default function Bmr() {
   return (
@@ -59,6 +60,7 @@ export default function Bmr() {
           กลับไปยังหน้าหลัก
         </Link>
       </div>
+      <Footer/>
     </>
   )
 }
