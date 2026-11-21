@@ -1,7 +1,294 @@
 @import "tailwindcss";
 
 @theme {
-  --font-kanit: 'Kanit';
   --font-itim: 'Itim';
-  --font-charm: 'Charm';
+}
+
+:root {
+  font-family: 'Kanit', system-ui, sans-serif;
+  color: #1f2937;
+  background: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid #155dfb;
+  outline-offset: 3px;
+}
+
+.home-page,
+.calculator-page--car {
+  background: #f2f3f5;
+}
+
+.home-page {
+  display: flow-root;
+}
+
+.home-main {
+  min-height: 100svh;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 2.5rem;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.home-header img {
+  width: 7.5rem;
+  margin: 0 auto .25rem;
+}
+
+.home-header h1 {
+  font-size: clamp(1.9rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home-header p {
+  color: #4b5563;
+  margin-top: .375rem;
+}
+
+.home-menu {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: min(100%, 62rem);
+}
+
+.menu-card {
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: .5rem;
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  background: #fff;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  transition: box-shadow .15s ease;
+}
+
+.menu-card:hover {
+  box-shadow: 0 8px 20px rgb(0 0 0 / 17%);
+}
+
+.menu-card img {
+  width: min(100%, 13.5rem);
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.menu-card h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.menu-card p {
+  font-size: .875rem;
+  color: #4b5563;
+}
+
+.calculator-page {
+  --accent: #155dfb;
+  --card-width: 45rem;
+  --image-size: 13.5rem;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: 1rem;
+}
+
+.calculator-page--bmi {
+  --card-width: 34rem;
+  --image-size: 5rem;
+}
+
+.calculator-page--bmr {
+  --accent: #4f39f6;
+}
+
+.calculator-card {
+  width: min(100%, var(--card-width));
+  padding: 1.5rem;
+  border-radius: .875rem;
+  background: #fff;
+  box-shadow: 0 18px 28px rgb(0 0 0 / 15%), 0 4px 8px rgb(0 0 0 / 5%);
+}
+
+.calculator-header {
+  text-align: center;
+}
+
+.calculator-header h1 {
+  font-size: clamp(1.5rem, 5vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.calculator-header p {
+  margin-top: .25rem;
+  color: #4b5563;
+}
+
+.calculator-illustration {
+  width: var(--image-size);
+  height: var(--image-size);
+  object-fit: contain;
+  margin: 1rem auto;
+}
+
+.calculator-form {
+  display: grid;
+  gap: .75rem;
+}
+
+.calculator-page--car .calculator-form {
+  gap: 1rem;
+}
+
+.calculator-field {
+  display: grid;
+  gap: .25rem;
+}
+
+.calculator-field,
+.calculator-options {
+  font-size: .875rem;
+}
+
+.calculator-field input,
+.calculator-field select {
+  width: 100%;
+  min-height: 2.25rem;
+  padding: .25rem .75rem;
+  border: 1px solid #d1d5db;
+  border-radius: .375rem;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 8%);
+}
+
+.calculator-field input::placeholder {
+  color: #6b7280;
+}
+
+.calculator-options legend {
+  margin-bottom: .25rem;
+}
+
+.radio-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem .625rem;
+}
+
+.radio-options--stacked {
+  flex-direction: column;
+}
+
+.radio-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  cursor: pointer;
+}
+
+.radio-options input {
+  accent-color: #4b5563;
+}
+
+.calculator-select {
+  position: relative;
+}
+
+.calculator-select select {
+  appearance: none;
+  padding-right: 2rem;
+}
+
+.calculator-select svg {
+  position: absolute;
+  top: 50%;
+  right: .75rem;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.calculator-actions {
+  display: flex;
+  gap: .75rem;
+  margin-top: .25rem;
+}
+
+.calculator-page--bmi .calculator-actions {
+  flex-direction: column;
+}
+
+.calculator-actions button,
+.calculator-back {
+  flex: 1;
+  padding: .625rem .5rem;
+  border-radius: .5rem;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 12%);
+  text-align: center;
+  font-size: .875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.calculate-button {
+  background: var(--accent);
+  color: #fff;
+}
+
+.reset-button,
+.calculator-back {
+  background: #e5e7eb;
+}
+
+.calculator-page--bmr .reset-button {
+  background: #e82334;
+  color: #fff;
+}
+
+.calculator-page--car .reset-button {
+  background: #d1d5db;
+}
+
+.calculator-actions button:hover,
+.calculator-back:hover {
+  filter: brightness(.94);
+}
+
+.calculator-result {
+  margin: 1.25rem 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.calculator-result strong {
+  color: var(--accent);
+}
+
+.calculator-back {
+  display: block;
+}
+
+@media (max-width: 48rem) {
+  .home-menu {
+    grid-template-columns: minmax(0, 24rem);
+    justify-content: center;
+  }
+
+  .menu-card img {
+    width: 9rem;
+  }
+
+  .calculator-page {
+    --image-size: 9rem;
+  }
+
+  .calculator-page--bmi {
+    --image-size: 5rem;
+  }
 }
